@@ -39,7 +39,7 @@
 
 // js/ui.js
 
-// 1. Centralisation dial les sélecteurs (DOM Elements)
+// 1. Centralisation dial les sélecteurs 
 export const elements = {
     form: document.getElementById('todo-form'),
     input: document.getElementById('input-tache'),
