@@ -67,6 +67,9 @@ export const renderTask = (task, onDelete) => {
     // Contenu HTML de la tâche
     li.innerHTML = `
         <span class="text-gray-700 font-medium">${task.title}</span>
+        <button class="okey-btn bg-blue-50 text-blue-500 hover:bg-blue-500 hover:text-white px-3 py-1 rounded-lg transition-colors text-sm font-bold">
+            okey
+        </button>
         <button class="delete-btn bg-red-50 text-red-500 hover:bg-red-500 hover:text-white px-3 py-1 rounded-lg transition-colors text-sm font-bold">
             Supprimer
         </button>

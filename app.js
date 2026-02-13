@@ -1,15 +1,4 @@
-// // js/app.js
-// import { initTodo } from './todo.js';
-// import { initTimer } from './timer.js';
 
-// const init = () => {
-//     initTodo();
-//     initTimer();
-// };
-
-// document.addEventListener('DOMContentLoaded', init);
-
-// js/app.js
 import { initTodo } from './todo.js';
 import { initTimer } from './timer.js';
 
