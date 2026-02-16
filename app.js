@@ -2,4 +2,8 @@
 import { initTodo } from './todo.js';
 import { initTimer } from './timer.js';
 
-FDGHJKLM
+document.addEventListener('DOMContentLoaded', () => {
+    initTodo();
+    initTimer();
+    console.log("FlowState est opérationnel ! ");
+});
