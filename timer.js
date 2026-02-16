@@ -1,8 +1,8 @@
 import { elements } from './ui.js';
 
 // 1. Définir l-waqt (25 min l-khidma, 5 min l-raha)
-const workTimeMinutes = 25 * 60; 
-const breakTimeMinutes = 5 * 60;
+const workTimeMinutes = 1 * 60; 
+const breakTimeMinutes =1 * 60;
 
 let timeLeft = workTimeMinutes;
 let timerId = null;
