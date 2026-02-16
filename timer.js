@@ -21,7 +21,7 @@ export const formatTime = (seconds) => {
 
 
 export const startTimer = () => {
-    if (timerId !== null) { return; } // Ila khdam déjà madir walo
+    if (timerId !== null) { return; } 
 
     timerId = setInterval(function() {
         timeLeft = timeLeft - 1; 
