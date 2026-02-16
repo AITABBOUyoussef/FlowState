@@ -45,26 +45,22 @@ export const elements = {
     input: document.getElementById('input-tache'),
     list: document.getElementById('todo-list'),
     timer: document.getElementById('timer-display'),
-    msg: document.getElementById('msg-mtv'), // L-Empty State message
+    msg: document.getElementById('msg-mtv'), 
 
     startBtn: document.getElementById('start-btn'),
     pauseBtn: document.getElementById('pause-btn'),
     resetBtn: document.getElementById('reset-btn'),
 };
 
-/**
- * Affiche une tâche dans le DOM
- * @param {Object} task - L'objet task {id, title, completed}
- * @param {Function} onDelete - La fonction à appeler pour supprimer
- */
+
 export const renderTask = (task, onDelete) => {
-    // Créer l'élément li
+  
     const li = document.createElement('li');
     
-    // Ajouter les classes Tailwind pour un design propre
+   
     li.className = "flex justify-between items-center bg-white p-4 mb-2 rounded-xl shadow-sm border-l-4 border-blue-500 transition-all hover:shadow-md";
     
-    // Contenu HTML de la tâche
+    
     li.innerHTML = `
         <span class="text-gray-700 font-medium">${task.title}</span>
         <button class="okey-btn bg-blue-50 text-blue-500 hover:bg-blue-500 hover:text-white px-3 py-1 rounded-lg transition-colors text-sm font-bold">
@@ -75,20 +71,17 @@ export const renderTask = (task, onDelete) => {
         </button>
     `;
 
-    // Gestionnaire d'événement pour le bouton supprimer
+    
     const deleteBtn = li.querySelector('.delete-btn');
     deleteBtn.addEventListener('click', () => {
-        onDelete(task.id, li); // Appelle la fonction de suppression passée en paramètre
+        onDelete(task.id, li);
     });
 
-    // Ajouter au début de la liste
+    
     elements.list.prepend(li);
 };
 
-/**
- * Gère l'affichage du message motivant (Empty State)
- * @param {number} tasksLength - Nombre de tâches actuelles
- */
+
 export const toggleEmptyState = (tasksLength) => {
     if (tasksLength === 0) {
         elements.msg.classList.remove('hidden');
@@ -97,9 +90,7 @@ export const toggleEmptyState = (tasksLength) => {
     }
 };
 
-/**
- * Nettoie l'input après l'ajout
- */
+
 export const clearInput = () => {
     elements.input.value = '';
     elements.input.focus();

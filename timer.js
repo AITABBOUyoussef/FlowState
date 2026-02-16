@@ -1,60 +1,64 @@
-//
 import { elements } from './ui.js';
 
-export const initTimer = () => {
-    elements.startBtn.addEventListener('click', () => {
-        startTimer(
-            (time) => elements.timer.innerText = time, // onTick
-            (isWork) => alert(isWork ? "Back to Work! 💪" : "Take a Break! ☕") // onComplete
-        );
-    });
+// 1. Définir l-waqt (25 min l-khidma, 5 min l-raha)
+const workTimeMinutes = 25 * 60; 
+const breakTimeMinutes = 5 * 60;
 
-    elements.pauseBtn.addEventListener('click', stopTimer);
-    
-    elements.resetBtn.addEventListener('click', () => {
-        elements.timer.innerText = restTimer();
-    });
-};
-//
-
-// n9smo lw9t ela joj w9t lkhdma o w9t raha 
-const work = 1*30;
-const brek = 1 * 10 ;
-
-let timeLeft = work;
+let timeLeft = workTimeMinutes;
 let timerId = null;
-let workTime = true ; //bach n3rfo wach hna fkhdma ola raha 
+let isWorking = true; 
+
+// 2. Fonction li kat-9ad l-waqt (00:00)
 export const formatTime = (seconds) => {
-    const mins =Math.floor(seconds /60);
-    const secs = seconds%60;
-    return `${mins.toString().padStart(2,'0')}: ${secs.toString().padStart(2,'0')}`; // ila kan ra9m sgher mn 10 zid 0 9bl
-};
-//logic dyal start
-export const startTimer = (onTick , onComplete )=> {
-    if (timerId) return; // ila lw9t kan khdam madir  walo 
-    timerId = setInterval(()=> {
-        timeLeft--;
-        onTick(formatTime(timeLeft));//kandifo lw9t jdid l ui 
-        if (timeLeft<=0){
-            stopTimer();
-            //switch bin lkhdma o raha 
-            workTime = !workTime;
-            timeLeft = workTime ? work :brek ;
-            onComplete(workTime); // ka9olo l ui bli salat lmar7ala 
+    let mins = Math.floor(seconds / 60);
+    let secs = seconds % 60;
 
+    if (mins < 10) { mins = "0" + mins; }
+    if (secs < 10) { secs = "0" + secs; }
+
+    return mins + ":" + secs;
+};
+
+// 3. Logic dyal Start
+export const startTimer = () => {
+    if (timerId !== null) { return; } // Ila khdam déjà madir walo
+
+    timerId = setInterval(function() {
+        timeLeft = timeLeft - 1; 
+        elements.timer.innerText = formatTime(timeLeft);
+
+        if (timeLeft <= 0) {
+            clearInterval(timerId);
+            timerId = null;
+
+            if (isWorking === true) {
+                isWorking = false;
+                timeLeft = breakTimeMinutes;
+                alert("Take a Break! ");
+            } else {
+                isWorking = true;
+                timeLeft = workTimeMinutes;
+                alert("Back to Work! ");
+            }
+            elements.timer.innerText = formatTime(timeLeft);
         }
-
-    },1000);
+    }, 1000);
 };
-// logic dyal stop
+
 export const stopTimer = () => {
     clearInterval(timerId);
     timerId = null;
 };
- //logic dyal reset 
- export const restTimer = ()=>{
+
+export const resetTimer = () => {
     stopTimer();
-    workTime = true; 
-    timeLeft = work;
-    return formatTime(timeLeft);
- };
+    isWorking = true;
+    timeLeft = workTimeMinutes;
+    elements.timer.innerText = formatTime(timeLeft);
+};
+
+export const initTimer = () => {
+    elements.startBtn.addEventListener('click', startTimer);
+    elements.pauseBtn.addEventListener('click', stopTimer);
+    elements.resetBtn.addEventListener('click', resetTimer);
+};
