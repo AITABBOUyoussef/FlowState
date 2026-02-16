@@ -8,7 +8,7 @@ let timeLeft = workTimeMinutes;
 let timerId = null;
 let isWorking = true; 
 
-// 2. Fonction li kat-9ad l-waqt (00:00)
+
 export const formatTime = (seconds) => {
     let mins = Math.floor(seconds / 60);
     let secs = seconds % 60;
@@ -19,7 +19,7 @@ export const formatTime = (seconds) => {
     return mins + ":" + secs;
 };
 
-// 3. Logic dyal Start
+
 export const startTimer = () => {
     if (timerId !== null) { return; } // Ila khdam déjà madir walo
 

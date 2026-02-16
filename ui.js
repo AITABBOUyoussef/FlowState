@@ -1,45 +1,4 @@
-// // js/ui.js
-// export const elements = {
-//     form: document.getElementById('todo-form'),
-//     input: document.getElementById('input-tache'),
-//     list: document.getElementById('todo-list'),
-//     timer: document.getElementById('timer-display'),
-//     msg: document.getElementById('msg-mtv'),
 
-//     startBtn: document.getElementById('start-btn'),
-//     pauseBtn: document.getElementById('pause-btn'),
-//     resetBtn: document.getElementById('reset-btn'),
-    
-// };
-
-
-// import { elements } from './ui.js'; 
-
-// export const renderTask = (task) => {
-//     // 1. Creer l-element 'li'
-//     const li = document.createElement('li');
-    
-//     // 2. Zid lih les classes Tailwind (bach yji nqi)
-//     li.className = "flex justify-between items-center bg-white p-3 rounded-lg shadow-sm border-l-4 border-blue-500";
-    
-//     // 3. 3mmer l-west dyalo b l-HTML
-//     // Khass t-zid l-titre dial l-task o wa7d l-bouton dial Delete
-//     li.innerHTML = `
-//         <span class="text-gray-700">${task.title}</span>
-//         <button class="text-red-500 hover:text-red-700 font-bold" onclick="handleDelete(${task.id})">
-//             Supprimer
-//         </button>
-//     `;
-    
-//     // 4. Lo7 had l-li f l-list (ul) li 3ndna f elements
-//     elements.list.appendChild(li);
-// };
-
-
-
-// js/ui.js
-
-// 1. Centralisation dial les sélecteurs (DOM Elements)
 export const elements = {
     form: document.getElementById('todo-form'),
     input: document.getElementById('input-tache'),

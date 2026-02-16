@@ -3,7 +3,6 @@ import { saveTasks, getTasks } from './storage.js';
 
 let tasks = getTasks();
 
-// 1. Validateur Regex simple
 const validTitle = (title) => {
     const rule = /^[a-zA-Z0-9\s]+$/;
     if (rule.test(title) === true) {
@@ -35,7 +34,7 @@ export const addTask = (title) => {
     return newTask;
 };
 
-// 2. Delete logic b boucle simple
+
 export const deleteTask = (id) => {
     let newTasksList = [];
     for (let i = 0; i < tasks.length; i++) {
@@ -48,7 +47,7 @@ export const deleteTask = (id) => {
 };
 
 export const initTodo = () => {
-    // Affichage initial
+
     for (let i = 0; i < tasks.length; i++) {
         renderTask(tasks[i], handleActionDelete);
     }
