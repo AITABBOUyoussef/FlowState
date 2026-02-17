@@ -14,12 +14,12 @@ const validTitle = (title) => {
 
 export const addTask = (title) => {
     if (title.trim() === "") {
-        alert("Empty task!");
+        alert("Empty task");
         return null;
     }
 
     if (validTitle(title) === false) {
-        alert("No special characters allowed!");
+        alert("No special characters allowed");
         return null;
     }
 
