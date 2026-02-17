@@ -5,5 +5,5 @@ import { initTimer } from './timer.js';
 document.addEventListener('DOMContentLoaded', () => {
     initTodo();
     initTimer();
-    console.log("FlowState est opérationnel ! ");
+    console.log("FlowState est opérationnel  ");
 });
