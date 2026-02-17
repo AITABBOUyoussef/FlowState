@@ -51,5 +51,5 @@ export const toggleEmptyState = (tasksLength) => {
 
 export const clearInput = () => {
     elements.input.value = '';
-    elements.input.focus();
+   
 };
