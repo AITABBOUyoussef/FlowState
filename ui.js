@@ -1,4 +1,3 @@
-
 export const elements = {
     form: document.getElementById('todo-form'),
     input: document.getElementById('input-tache'),
